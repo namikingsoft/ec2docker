@@ -38,18 +38,18 @@ vagrant up && bundle exec rake
 Other Command
 ------------------------------
 
-#### Rake provisioning and serverspec
+#### provisioning and serverspec
 
 ```bash
 bundle exec rake
 ```
-#### Rake provisioning
+#### provisioning
 
 ```bash
 bundle exec rake provision
 ```
 
-#### Rake serverspec 
+#### serverspec 
 
 ```bash
 bundle exec rake spec
