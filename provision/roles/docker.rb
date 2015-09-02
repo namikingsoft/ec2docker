@@ -1,8 +1,12 @@
 include_recipe "../cookbooks/docker/default.rb"
 
-execute "add env for docker-compose" do
-  command "echo 'COMPOSE_API_VERSION=1.18' >> /etc/environment"
-  not_if "cat /etc/environment | grep COMPOSE_API_VERSION"
+file "/etc/environment" do
+  action :edit
+  block do |content|
+    unless content.gsub! /^COMPOSE_API_VERSION/, "COMPOSE_API_VERSION=auto"
+      content <<= "\nCOMPOSE_API_VERSION=auto\n"
+    end
+  end
 end
 
 execute "add group docker for ec2-user" do

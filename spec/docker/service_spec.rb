@@ -6,5 +6,5 @@ describe service('docker') do
 end
 
 describe file('/etc/environment') do
-  it { should contain 'COMPOSE_API_VERSION=1.18' }
+  it { should contain 'COMPOSE_API_VERSION=auto' }
 end
